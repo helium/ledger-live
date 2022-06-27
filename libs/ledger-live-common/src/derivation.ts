@@ -179,6 +179,10 @@ const modes = Object.freeze({
     purpose: 1852,
     overridesDerivation: "1852'/1815'/<account>'/<node>/<address>",
   },
+  helium: {
+    overridesDerivation: "44'/904'/<account>'/0'/0'",
+    isNonIterable: true,
+  },
 });
 modes as Record<DerivationMode, ModeSpec>; // eslint-disable-line
 
@@ -197,6 +201,7 @@ const legacyDerivations: Record<CryptoCurrencyIds, DerivationMode[]> = {
   filecoin: ["gliflegacy", "glif"],
   cardano: ["cardano"],
   cardano_testnet: ["cardano"],
+  helium: ["helium"],
 };
 
 const legacyDerivationsPerFamily: Record<string, DerivationMode[]> = {
@@ -359,6 +364,7 @@ const disableBIP44 = {
   hedera: true,
   cardano: true,
   cardano_testnet: true,
+  helium: true,
 };
 const seedIdentifierPath = {
   neo: ({ purpose, coinType }) => `${purpose}'/${coinType}'/0'/0/0`,

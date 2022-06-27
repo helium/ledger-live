@@ -18,6 +18,8 @@ import filecoin from "../families/filecoin/hw-getAddress";
 
 import hedera from "../families/hedera/hw-getAddress";
 
+import helium from "../families/helium/hw-getAddress";
+
 import neo from "../families/neo/hw-getAddress";
 
 import polkadot from "../families/polkadot/hw-getAddress";
@@ -32,7 +34,6 @@ import tezos from "../families/tezos/hw-getAddress";
 
 import tron from "../families/tron/hw-getAddress";
 
-
 export default {
   algorand,
   bitcoin,
@@ -44,6 +45,7 @@ export default {
   ethereum,
   filecoin,
   hedera,
+  helium,
   neo,
   polkadot,
   ripple,

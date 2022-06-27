@@ -18,6 +18,8 @@ import filecoin from "../families/filecoin/transaction";
 
 import hedera from "../families/hedera/transaction";
 
+import helium from "../families/helium/transaction";
+
 import neo from "../families/neo/transaction";
 
 import polkadot from "../families/polkadot/transaction";
@@ -32,7 +34,6 @@ import tezos from "../families/tezos/transaction";
 
 import tron from "../families/tron/transaction";
 
-
 export default {
   algorand,
   bitcoin,
@@ -44,6 +45,7 @@ export default {
   ethereum,
   filecoin,
   hedera,
+  helium,
   neo,
   polkadot,
   ripple,

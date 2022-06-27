@@ -58,7 +58,7 @@ if (!remoteExists) {
     "remote",
     "add",
     remote,
-    `https://github.com/LedgerHQ/${remote}.git`,
+    `https://github.com/helium/${remote}.git`,
   ]);
   cleanupTasks.push(() => {
     console.log(chalk.bold("> Removing remote: ") + remote);
