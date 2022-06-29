@@ -9,7 +9,7 @@ import { open, close } from "../../hw";
 import { encodeOperationId } from "../../operation";
 import Helium from "@ledgerhq/hw-app-helium";
 
-import { buildPaymentV1Txn } from "./js-buildTransaction";
+import { buildPaymentV2Txn } from "./js-buildTransaction";
 import { getNonce } from "./logic";
 
 const buildOptimisticOperation = async (
@@ -62,11 +62,11 @@ const signOperation = ({
           throw new FeeNotLoaded();
         }
 
-        const unsigned = await buildPaymentV1Txn(account, transaction);
+        const unsigned = await buildPaymentV2Txn(account, transaction);
 
         // Sign by device
         const helium = new Helium(transport);
-        const { txn: signed } = await helium.signPaymentV1(unsigned);
+        const { txn: signed } = await helium.signPaymentV2(unsigned);
 
         o.next({ type: "device-signature-granted" });
 

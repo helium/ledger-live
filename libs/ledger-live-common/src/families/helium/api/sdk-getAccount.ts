@@ -2,6 +2,11 @@ import BigNumber from "bignumber.js";
 import { fetch } from "./sdk";
 import { Account, AccountHTTP } from "./sdk.types";
 
+/**
+ * Get account balances and nonce.
+ * @param address
+ * @returns
+ */
 const getAccount = async (address: string): Promise<Account> => {
   const { data: account }: { data: AccountHTTP } = await fetch(
     `/accounts/${address}`

@@ -891,6 +891,9 @@ importers:
       '@ethereumjs/common': ^2.6.2
       '@ethereumjs/tx': ^3.5.0
       '@hashgraph/sdk': ^2.10.1
+      '@helium/address': ^4.3.1
+      '@helium/crypto': ^4.3.1
+      '@helium/transactions': ^4.3.1
       '@ledgerhq/compressjs': 1.3.2
       '@ledgerhq/cryptoassets': workspace:^
       '@ledgerhq/devices': workspace:^
@@ -899,6 +902,7 @@ importers:
       '@ledgerhq/hw-app-btc': workspace:^
       '@ledgerhq/hw-app-cosmos': workspace:^
       '@ledgerhq/hw-app-eth': workspace:^
+      '@ledgerhq/hw-app-helium': workspace:^
       '@ledgerhq/hw-app-polkadot': workspace:^
       '@ledgerhq/hw-app-solana': workspace:^
       '@ledgerhq/hw-app-str': workspace:^
@@ -1001,6 +1005,7 @@ importers:
       performance-now: ^2.1.0
       prando: ^6.0.1
       prettier: 2.3.2
+      qs: ^6.10.1
       react: ^17.0.2
       react-dom: 17.0.2
       react-native: 0.65.1
@@ -1049,6 +1054,9 @@ importers:
       '@ethereumjs/common': 2.6.4
       '@ethereumjs/tx': 3.5.1
       '@hashgraph/sdk': 2.14.2
+      '@helium/address': 4.3.1
+      '@helium/crypto': 4.3.1
+      '@helium/transactions': 4.3.1
       '@ledgerhq/compressjs': 1.3.2
       '@ledgerhq/cryptoassets': link:../ledgerjs/packages/cryptoassets
       '@ledgerhq/devices': link:../ledgerjs/packages/devices
@@ -1057,6 +1065,7 @@ importers:
       '@ledgerhq/hw-app-btc': link:../ledgerjs/packages/hw-app-btc
       '@ledgerhq/hw-app-cosmos': link:../ledgerjs/packages/hw-app-cosmos
       '@ledgerhq/hw-app-eth': link:../ledgerjs/packages/hw-app-eth
+      '@ledgerhq/hw-app-helium': link:../ledgerjs/packages/hw-app-helium
       '@ledgerhq/hw-app-polkadot': link:../ledgerjs/packages/hw-app-polkadot
       '@ledgerhq/hw-app-solana': link:../ledgerjs/packages/hw-app-solana
       '@ledgerhq/hw-app-str': link:../ledgerjs/packages/hw-app-str
@@ -1128,6 +1137,7 @@ importers:
       object-hash: 2.2.0
       performance-now: 2.1.0
       prando: 6.0.1
+      qs: 6.10.3
       redux: 4.2.0
       reselect: 4.1.5
       ripemd160: 2.0.2
@@ -9118,6 +9128,14 @@ packages:
       bs58: 5.0.0
       js-sha256: 0.9.0
       multiformats: 9.6.5
+    dev: false
+
+  /@helium/crypto/4.3.1:
+    resolution: {integrity: sha512-6MHzu2oyxEJWSNdM3YV/hF8sd0+pLET8BZcUnA62a/ofQefvCoJaBjteAtolyGw8cxRBp10ZWPCXMHHGdXFSZQ==}
+    dependencies:
+      '@helium/address': 4.3.1
+      create-hash: 1.2.0
+      libsodium-wrappers: 0.7.10
     dev: false
 
   /@helium/proto/1.5.0:
@@ -19843,7 +19861,7 @@ packages:
   /axios/0.21.1:
     resolution: {integrity: sha512-dKQiRHxGD9PPRIUNIWvZhPTPpl1rf/OxTYKsqKUDjBwYylTvV7SjSHJb9ratfyzM6wCdLCOYLzs73qpg5c4iGA==}
     dependencies:
-      follow-redirects: 1.15.0
+      follow-redirects: 1.15.0_debug@4.3.4
     transitivePeerDependencies:
       - debug
 
@@ -19881,7 +19899,7 @@ packages:
   /axios/0.26.1:
     resolution: {integrity: sha512-fPwcX4EvnSHuInCMItEhAGnaSEXRBjtzh9fOtsE6E1G6p7vl7edEeZe11QHf18+6+9gR5PbKV/sGKNaD8YaMeA==}
     dependencies:
-      follow-redirects: 1.15.0_debug@4.3.4
+      follow-redirects: 1.15.0
     transitivePeerDependencies:
       - debug
 
@@ -20490,7 +20508,7 @@ packages:
       babel-plugin-syntax-jsx: 6.18.0
       lodash: 4.17.21
       picomatch: 2.3.1
-      styled-components: 5.3.5_fane7jikarojcev26y27hpbhu4
+      styled-components: 5.3.5_ovpqj5wn7dv5iunpkty63trwiy
 
   /babel-plugin-syntax-jsx/6.18.0:
     resolution: {integrity: sha512-qrPaCSo9c8RHNRHIotaufGbuOBN8rtdC4QrrFFc43vyWCCz7Kl7GL1PGaXtMGQZUXrkCjNEgxDfmAuAabr/rlw==}
@@ -25779,7 +25797,7 @@ packages:
     dependencies:
       confusing-browser-globals: 1.0.11
       eslint: 7.32.0
-      eslint-plugin-import: 2.26.0_ffi3uiz42rv3jyhs6cr7p7qqry
+      eslint-plugin-import: 2.26.0_eslint@7.32.0
       object.assign: 4.1.2
       object.entries: 1.1.5
     dev: true
@@ -25796,7 +25814,7 @@ packages:
     dependencies:
       eslint: 7.32.0
       eslint-config-airbnb-base: 14.2.1_hpmu7kn6tcn2vnxpfzvv33bxmy
-      eslint-plugin-import: 2.26.0_ffi3uiz42rv3jyhs6cr7p7qqry
+      eslint-plugin-import: 2.26.0_eslint@7.32.0
       eslint-plugin-jsx-a11y: 6.5.1_eslint@7.32.0
       eslint-plugin-react: 7.29.4_eslint@7.32.0
       eslint-plugin-react-hooks: 4.5.0_eslint@7.32.0
@@ -28679,7 +28697,7 @@ packages:
       debug:
         optional: true
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.4_supports-color@6.1.0
 
   /fontfaceobserver/2.1.0:
     resolution: {integrity: sha512-ReOsO2F66jUa0jmv2nlM/s1MiutJx/srhAe2+TE8dJCMi02ZZOcCTxTCQFr3Yet+uODUtnr4Mewg+tNQ+4V1Ng==}
@@ -33221,7 +33239,7 @@ packages:
       jest-resolve:
         optional: true
     dependencies:
-      jest-resolve: 27.5.1
+      jest-resolve: 27.5.1_metro@0.67.0
     dev: true
 
   /jest-pnp-resolver/1.2.2_jest-resolve@28.1.0:
@@ -35958,7 +35976,7 @@ packages:
     engines: {node: '>= 0.6.0'}
 
   /long/2.4.0:
-    resolution: {integrity: sha1-n6GAux2VAM3CnEFWdmoZleH0Uk8=}
+    resolution: {integrity: sha512-ijUtjmO/n2A5PaosNG9ZGDsQ3vxJg7ZW8vsY8Kp0f2yIZWhSJvjmegV7t+9RPQKxKrvj8yKGehhS+po14hPLGQ==}
     engines: {node: '>=0.6'}
     dev: false
 
@@ -36653,24 +36671,6 @@ packages:
       - supports-color
       - utf-8-validate
 
-  /metro-config/0.67.0_5rj3ktdhebdtkdjqejo5rbxriu:
-    resolution: {integrity: sha512-ThAwUmzZwTbKyyrIn2bKIcJDPDBS0LKAbqJZQioflvBGfcgA21h3fdL3IxRmvCEl6OnkEWI0Tn1Z9w2GLAjf2g==}
-    peerDependencies:
-      metro-transform-worker: '*'
-    peerDependenciesMeta:
-      metro-transform-worker:
-        optional: true
-    dependencies:
-      cosmiconfig: 5.2.1
-      jest-validate: 26.6.2
-      metro: 0.67.0
-      metro-cache: 0.67.0_metro@0.67.0
-      metro-core: 0.67.0_metro@0.67.0
-      metro-runtime: 0.67.0
-      metro-transform-worker: 0.67.0_metro-minify-uglify@0.67.0
-    transitivePeerDependencies:
-      - metro
-
   /metro-config/0.67.0_h77kaxayu5kga6qsud7rauzt6a:
     resolution: {integrity: sha512-ThAwUmzZwTbKyyrIn2bKIcJDPDBS0LKAbqJZQioflvBGfcgA21h3fdL3IxRmvCEl6OnkEWI0Tn1Z9w2GLAjf2g==}
     peerDependencies:
@@ -36942,7 +36942,7 @@ packages:
       '@babel/parser': 7.18.5
       '@babel/types': 7.18.4
       babel-preset-fbjs: 3.4.0_@babel+core@7.18.5
-      metro: 0.67.0_h77kaxayu5kga6qsud7rauzt6a
+      metro: 0.67.0
       metro-babel-transformer: 0.67.0
       metro-cache: 0.67.0_metro@0.67.0
       metro-cache-key: 0.67.0
@@ -37015,68 +37015,6 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - encoding
-      - supports-color
-      - utf-8-validate
-
-  /metro/0.67.0_h77kaxayu5kga6qsud7rauzt6a:
-    resolution: {integrity: sha512-DwuBGAFcAivoac/swz8Lp7Y5Bcge1tzT7T6K0nf1ubqJP8YzBUtyR4pkjEYVUzVu/NZf7O54kHSPVu1ibYzOBQ==}
-    hasBin: true
-    dependencies:
-      '@babel/code-frame': 7.16.7
-      '@babel/core': 7.18.5
-      '@babel/generator': 7.18.2
-      '@babel/parser': 7.18.5
-      '@babel/template': 7.16.7
-      '@babel/traverse': 7.18.5
-      '@babel/types': 7.18.4
-      absolute-path: 0.0.0
-      accepts: 1.3.8
-      async: 2.6.4
-      chalk: 4.1.2
-      ci-info: 2.0.0
-      connect: 3.7.0
-      debug: 2.6.9
-      denodeify: 1.2.1
-      error-stack-parser: 2.0.7
-      fs-extra: 1.0.0
-      graceful-fs: 4.2.10
-      hermes-parser: 0.5.0
-      image-size: 0.6.3
-      invariant: 2.2.4
-      jest-haste-map: 27.5.1_metro@0.67.0
-      jest-worker: 26.6.2_metro@0.67.0
-      lodash.throttle: 4.1.1
-      metro-babel-transformer: 0.67.0
-      metro-cache: 0.67.0_metro@0.67.0
-      metro-cache-key: 0.67.0
-      metro-config: 0.67.0_5rj3ktdhebdtkdjqejo5rbxriu
-      metro-core: 0.67.0_metro@0.67.0
-      metro-hermes-compiler: 0.67.0
-      metro-inspector-proxy: 0.67.0
-      metro-minify-uglify: 0.67.0
-      metro-react-native-babel-preset: 0.67.0
-      metro-resolver: 0.67.0
-      metro-runtime: 0.67.0
-      metro-source-map: 0.67.0
-      metro-symbolicate: 0.67.0
-      metro-transform-plugins: 0.67.0
-      metro-transform-worker: 0.67.0_metro-minify-uglify@0.67.0
-      mime-types: 2.1.35
-      mkdirp: 0.5.6
-      node-fetch: 2.6.7
-      nullthrows: 1.1.1
-      rimraf: 2.7.1
-      serialize-error: 2.1.0
-      source-map: 0.5.7
-      strip-ansi: 6.0.1
-      temp: 0.8.3
-      throat: 5.0.0
-      ws: 7.5.7
-      yargs: 15.4.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - metro-transform-worker
       - supports-color
       - utf-8-validate
 
@@ -39042,7 +38980,7 @@ packages:
     engines: {node: '>=8'}
 
   /path/0.12.7:
-    resolution: {integrity: sha1-1NwqUGxM4hl+tIHr/NWzbAFAsQ8=}
+    resolution: {integrity: sha512-aXXC6s+1w7otVF9UletFkFcDsJeO7lSZBPUQhtb5O0xJe8LtYhj/GxldoL09bBj9+ZmE2hNoHqQSFMN5fikh4Q==}
     dependencies:
       process: 0.11.10
       util: 0.10.4
@@ -45073,7 +45011,6 @@ packages:
       react-is: 17.0.2
       shallowequal: 1.1.0
       supports-color: 5.5.0
-    dev: false
 
   /styled-system/5.1.5:
     resolution: {integrity: sha512-7VoD0o2R3RKzOzPK0jYrVnS8iJdfkKsQJNiLRDjikOpQVqQHns/DXWaPZOH4tIKkhAT7I6wIsy9FWTWh2X3q+A==}

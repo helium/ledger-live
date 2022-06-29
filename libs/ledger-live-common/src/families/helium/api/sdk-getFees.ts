@@ -1,25 +1,11 @@
-import { Address } from "@helium/crypto";
-import { Transaction, PaymentV1 } from "@helium/transactions";
+import Address from "@helium/address";
+import { Transaction, PaymentV2 } from "@helium/transactions";
 import BigNumber from "bignumber.js";
 import { fetch } from "./sdk";
 
 const EMPTY_ADDRESS = Address.fromB58(
   "13PuqyWXzPYeXcF1B9ZRx7RLkEygeL374ZABiQdwRSNzASdA1sn"
 );
-
-const makeFeeTxn = (type = "payment_v1") => {
-  switch (type) {
-    case "payment_v1":
-      return new PaymentV1({
-        payer: EMPTY_ADDRESS,
-        payee: EMPTY_ADDRESS,
-        amount: 100000000,
-        nonce: 1,
-      });
-    default:
-      throw "Unsupported type for fees";
-  }
-};
 
 const TXN_VARS: string[] = [
   "txn_fee_multiplier",
@@ -28,6 +14,33 @@ const TXN_VARS: string[] = [
   "staking_fee_txn_add_gateway_v1",
 ];
 
+/**
+ * Make fee transaction for PaymentV1 or PaymentV2.
+ * @param type type of helium payment. payment_v1 | payment_v2
+ * @returns Payment object.
+ */
+const makeFeeTxn = (type = "payment_v2") => {
+  switch (type) {
+    case "payment_v2":
+      return new PaymentV2({
+        payer: EMPTY_ADDRESS,
+        payments: [
+          {
+            payee: EMPTY_ADDRESS,
+            amount: 100000000,
+          },
+        ],
+        nonce: 1,
+      });
+    default:
+      throw "Unsupported type for fees";
+  }
+};
+
+/**
+ * Fetch transaction config chain variables.
+ * @returns config chain vars
+ */
 const fetchTransactionConfigChainVars = async () => {
   const { data: vars } = await fetch("/vars", { keys: TXN_VARS.join(",") });
   return {
@@ -38,6 +51,11 @@ const fetchTransactionConfigChainVars = async () => {
   };
 };
 
+/**
+ * Convert data credits to helium tokens.
+ * @param dc to convert to HNT
+ * @returns converted dc to hnt
+ */
 const dcToHnt = async (dc: BigNumber): Promise<BigNumber> => {
   const dcInUSD = dc.dividedBy(100000);
   const { data: oracle } = await fetch("/oracle/prices/current");
@@ -45,15 +63,18 @@ const dcToHnt = async (dc: BigNumber): Promise<BigNumber> => {
   return dcInUSD.dividedBy(oraclePrice).multipliedBy(100000000);
 };
 
+/**
+ * Get fees for transaction.
+ * @param type type of helium payment. payment_v1 | payment_v2
+ * @returns transactions fees
+ */
 const getFees = async (
-  type = "payment_v1"
+  type = "payment_v2"
 ): Promise<{ dc: BigNumber; estHnt: BigNumber }> => {
   Transaction.config(await fetchTransactionConfigChainVars());
   const txn = makeFeeTxn(type);
   const dc = new BigNumber(txn.fee ?? 0);
   const estHnt = await dcToHnt(dc);
-  console.log('estHNT', estHnt.toString())
-  console.log('estHNT', estHnt.toNumber())
 
   return { dc, estHnt };
 };

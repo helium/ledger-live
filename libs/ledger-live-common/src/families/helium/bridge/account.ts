@@ -12,7 +12,7 @@ import {
 import { Transaction } from "../types";
 import { getAccountShape } from "./utils";
 
-const sync = makeSync(getAccountShape);
+const sync = makeSync({ getAccountShape });
 
 const receive = makeAccountBridgeReceive();
 

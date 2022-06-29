@@ -1,5 +1,10 @@
 import network from "../../../network";
 
+/**
+ * Submit transaction.
+ * @param txn transaction
+ * @returns Promise with submit hash.
+ */
 const submit = async (txn: string): Promise<{ hash: string }> => {
   const url = "https://api.helium.io/v1/pending_transactions";
 

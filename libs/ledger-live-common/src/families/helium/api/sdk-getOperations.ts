@@ -5,6 +5,12 @@ import { Operation } from "../../../types";
 
 const supportedTypes = ["payment_v1", "payment_v2"];
 
+/**
+ * Parse thorugh transaction.
+ * @param txn transaction
+ * @param accountAddress address making transaction
+ * @returns
+ */
 const parseTxn = (txn: any, accountAddress: string) => {
   switch (txn.type) {
     case "payment_v1":
@@ -18,9 +24,20 @@ const parseTxn = (txn: any, accountAddress: string) => {
   }
 };
 
+/**
+ * Sums up all big numbers.
+ * @param numbers
+ * @returns sum of all numbers.
+ */
 const bigNumberSum = (numbers: BigNumber[]) =>
   numbers.reduce((sum, number) => sum.plus(number), new BigNumber(0));
 
+/**
+ * Parse PaymentV1 Transaction.
+ * @param txn transaction
+ * @param accountAddress address making transaction
+ * @returns transaction object.
+ */
 const parsePaymentV1 = (txn: PaymentV1, accountAddress: string) => {
   return {
     id: txn.hash,
@@ -39,6 +56,12 @@ const parsePaymentV1 = (txn: PaymentV1, accountAddress: string) => {
   };
 };
 
+/**
+ * Parse PaymentV2 Transaction.
+ * @param txn transaction
+ * @param accountAddress address making transaction
+ * @returns transaction object.
+ */
 const parsePaymentV2 = (txn: PaymentV2, accountAddress: string) => {
   const bnPayments = txn.payments.map((p) => ({
     ...p,
@@ -65,7 +88,13 @@ const parsePaymentV2 = (txn: PaymentV2, accountAddress: string) => {
   };
 };
 
+/**
+ * Return all operations.
+ * @param address
+ * @returns Promise with array of operations
+ */
 const getOperations = async (address: string): Promise<Operation[]> => {
+  // Get all transactions in order to return operations.
   const txns = await fetchAll(`/accounts/${address}/activity`, {
     filter_types: supportedTypes.join(","),
   });

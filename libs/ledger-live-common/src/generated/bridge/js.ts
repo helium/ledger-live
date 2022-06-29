@@ -17,6 +17,7 @@ import ethereum from "../../families/ethereum/bridge/js";
 import filecoin from "../../families/filecoin/bridge/js";
 
 import hedera from "../../families/hedera/bridge/js";
+
 import helium from "../../families/helium/bridge/js";
 
 import neo from "../../families/neo/bridge/js";
@@ -32,6 +33,7 @@ import stellar from "../../families/stellar/bridge/js";
 import tezos from "../../families/tezos/bridge/js";
 
 import tron from "../../families/tron/bridge/js";
+
 
 export default {
   algorand,

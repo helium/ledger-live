@@ -34,6 +34,7 @@ import tezos from "../families/tezos/hw-getAddress";
 
 import tron from "../families/tron/hw-getAddress";
 
+
 export default {
   algorand,
   bitcoin,
