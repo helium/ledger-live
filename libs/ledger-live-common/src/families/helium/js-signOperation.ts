@@ -12,6 +12,13 @@ import Helium from "@ledgerhq/hw-app-helium";
 import { buildPaymentV2Txn } from "./js-buildTransaction";
 import { getNonce } from "./logic";
 
+/**
+ *
+ * @param account
+ * @param transaction
+ * @param fee
+ * @returns
+ */
 const buildOptimisticOperation = async (
   account: Account,
   transaction: Transaction,
@@ -42,6 +49,8 @@ const buildOptimisticOperation = async (
 
 /**
  * Sign Transaction with Ledger hardware
+ * @param param0
+ * @returns
  */
 const signOperation = ({
   account,

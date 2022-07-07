@@ -2,6 +2,7 @@ import BigNumber from "bignumber.js";
 import { PaymentV1, PaymentV2 } from "./sdk.types";
 import { fetchAll } from "./sdk";
 import { Operation } from "../../../types";
+import { isTestnet } from "../utils";
 
 const supportedTypes = ["payment_v1", "payment_v2"];
 
@@ -95,9 +96,13 @@ const parsePaymentV2 = (txn: PaymentV2, accountAddress: string) => {
  */
 const getOperations = async (address: string): Promise<Operation[]> => {
   // Get all transactions in order to return operations.
-  const txns = await fetchAll(`/accounts/${address}/activity`, {
-    filter_types: supportedTypes.join(","),
-  });
+  const txns = await fetchAll(
+    `/accounts/${address}/activity`,
+    isTestnet(address),
+    {
+      filter_types: supportedTypes.join(","),
+    }
+  );
 
   return txns.map((txn) => parseTxn(txn, address));
 };

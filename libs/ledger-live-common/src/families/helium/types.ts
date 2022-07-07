@@ -25,14 +25,15 @@ export type Transaction = TransactionCommon & {
   mode: TransactionMode;
   fees?: BigNumber;
   networkInfo?: NetworkInfo;
-  memo?: string;
+  memo: string | undefined;
 };
 export type TransactionRaw = TransactionCommonRaw & {
   family: "helium";
   mode: TransactionMode;
   fees?: string;
   networkInfo?: NetworkInfoRaw;
-  memo?: string;
+  memo: string | undefined;
 };
 
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const reflect = (_declare: any): void => {};

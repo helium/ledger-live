@@ -1,7 +1,7 @@
 import type { Operation, SignedOperation } from "../../types";
 import { patchOperationWithHash } from "../../operation";
-
 import { submit } from "./api";
+import { isTestnet } from "./utils";
 
 /**
  * Broadcast the signed transaction
@@ -12,7 +12,7 @@ const broadcast = async ({
 }: {
   signedOperation: SignedOperation;
 }): Promise<Operation> => {
-  const { hash } = await submit(signature);
+  const { hash } = await submit(signature, isTestnet(operation.accountId));
 
   return patchOperationWithHash(operation, hash);
 };

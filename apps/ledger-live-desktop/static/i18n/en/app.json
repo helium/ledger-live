@@ -3740,6 +3740,10 @@
       "memoPlaceholder": "Optional",
       "memoWarningText": "When using a memo, carefully check the information with the recipient"
     },
+    "helium": {
+      "memo": "Memo",
+      "memoPlaceholder": "Optional"
+    },
     "solana": {
       "memo": "Memo",
       "memoPlaceholder": "Optional"

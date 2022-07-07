@@ -1,4 +1,5 @@
 import BigNumber from "bignumber.js";
+import { isTestnet } from "../utils";
 import { fetch } from "./sdk";
 import { Account, AccountHTTP } from "./sdk.types";
 
@@ -9,7 +10,8 @@ import { Account, AccountHTTP } from "./sdk.types";
  */
 const getAccount = async (address: string): Promise<Account> => {
   const { data: account }: { data: AccountHTTP } = await fetch(
-    `/accounts/${address}`
+    `/accounts/${address}`,
+    isTestnet(address)
   );
 
   return {

@@ -10,20 +10,20 @@ import {
   updateTransaction,
 } from "../js-transaction";
 import { Transaction } from "../types";
-import { getAccountShape } from "./utils";
+import { getAccountShape } from "../utils";
 
 const sync = makeSync({ getAccountShape });
 
 const receive = makeAccountBridgeReceive();
 
 export const accountBridge: AccountBridge<Transaction> = {
+  sync,
   createTransaction,
   updateTransaction,
   prepareTransaction,
   getTransactionStatus,
-  estimateMaxSpendable,
-  sync,
-  receive,
   signOperation,
   broadcast,
+  estimateMaxSpendable,
+  receive,
 };

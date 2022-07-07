@@ -2,15 +2,27 @@ import { BigNumber } from "bignumber.js";
 import {
   NotEnoughBalance,
   RecipientRequired,
+  InvalidAddressBecauseDestinationIsAlsoSource,
   InvalidAddress,
   FeeNotLoaded,
+  AmountRequired,
 } from "@ledgerhq/errors";
 import type { Account, TransactionStatus } from "../../types";
 import type { Transaction } from "./types";
-
 import { isValidAddress } from "./logic";
-// import { MyCoinSpecificError } from "./errors";
-
+import { getMemoStrValid } from "./utils";
+import { HeliumMemoTooLong } from "./errors";
+/**
+ * Here are the list of the differents things we check
+ * - Check if recipient is the same in case of send
+ * - Check if recipient is valid
+ * - Check if amounts are set
+ * - Check if fees are loaded
+ * - Check if memo is too long
+ * @param a account
+ * @param t transaction
+ * @returns transaction status object
+ */
 const getTransactionStatus = async (
   a: Account,
   t: Transaction
@@ -18,10 +30,6 @@ const getTransactionStatus = async (
   const errors: Record<string, Error> = {};
   const warnings: Record<string, Error> = {};
   const useAllAmount = !!t.useAllAmount;
-
-  if (!t.fees) {
-    errors.fees = new FeeNotLoaded();
-  }
 
   const estimatedFees = t.fees || new BigNumber(0);
 
@@ -37,16 +45,29 @@ const getTransactionStatus = async (
     errors.amount = new NotEnoughBalance();
   }
 
-  // If MyCoin needs any specific requirement on amount for instance
-  // if (specificCheck(t.amount)) {
-  //   errors.amount = new MyCoinSpecificError();
-  // }
-  console.log('getTransactionStatus', a, t)
-
   if (!t.recipient) {
     errors.recipient = new RecipientRequired();
   } else if (!isValidAddress(t.recipient)) {
     errors.recipient = new InvalidAddress();
+  } else if (t.mode === "send" && a.freshAddress === t.recipient) {
+    errors.recipient = new InvalidAddressBecauseDestinationIsAlsoSource();
+  }
+
+  if (t.amount.lte(0) && !t.useAllAmount) {
+    errors.amount = new AmountRequired();
+  }
+
+  if (!t.fees) {
+    errors.fees = new FeeNotLoaded();
+  }
+
+  const memo = t.memo;
+
+  if (memo && !getMemoStrValid(memo)) {
+    errors.memo = new HeliumMemoTooLong();
+
+    // LLM expects <transaction> as error key to disable continue button
+    errors.transaction = errors.memo;
   }
 
   return Promise.resolve({

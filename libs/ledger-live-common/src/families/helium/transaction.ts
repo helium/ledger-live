@@ -8,6 +8,12 @@ import type { Account } from "../../types";
 import { getAccountUnit } from "../../account";
 import { formatCurrencyUnit } from "../../currencies";
 
+/**
+ *
+ * @param param0
+ * @param account
+ * @returns string
+ */
 export const formatTransaction = (
   { mode, amount, recipient, useAllAmount }: Transaction,
   account: Account
@@ -25,6 +31,11 @@ ${mode.toUpperCase()} ${
         })
   }${recipient ? `\nTO ${recipient}` : ""}`;
 
+/**
+ *
+ * @param tr
+ * @returns Transaction
+ */
 export const fromTransactionRaw = (tr: TransactionRaw): Transaction => {
   const common = fromTransactionCommonRaw(tr);
   return {
@@ -32,9 +43,15 @@ export const fromTransactionRaw = (tr: TransactionRaw): Transaction => {
     family: tr.family,
     mode: tr.mode,
     fees: tr.fees ? new BigNumber(tr.fees) : undefined,
+    memo: tr.memo || undefined,
   };
 };
 
+/**
+ *
+ * @param t
+ * @returns TransactionRaw
+ */
 export const toTransactionRaw = (t: Transaction): TransactionRaw => {
   const common = toTransactionCommonRaw(t);
   return {
@@ -42,6 +59,7 @@ export const toTransactionRaw = (t: Transaction): TransactionRaw => {
     family: t.family,
     mode: t.mode,
     fees: t.fees?.toString() || undefined,
+    memo: t.memo || undefined,
   };
 };
 
