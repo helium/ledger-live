@@ -53,15 +53,17 @@ export const serializePaymentV2 = (txn: PaymentV2): Buffer => {
 
   const { amount, memo } = txn.payments[0];
   const payee = txn.payments[0].payee as Address;
+  const tokenType = txn.payments[0].tokenType ?? 0;
 
   const txSerialized = Buffer.concat([
     serializeNumber(amount),
     serializeNumber(txn.fee),
     serializeNumber(txn.nonce),
     Buffer.from([payee.version]),
-    Buffer.from([payee.keyType]),
+    Buffer.from([payee.netType | payee.keyType]),
     Buffer.from(payee.publicKey),
     serializeMemo(memo || ""),
+    serializeNumber(tokenType),
   ]);
 
   return Buffer.from(txSerialized);

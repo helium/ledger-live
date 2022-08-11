@@ -1557,9 +1557,9 @@ importers:
 
   libs/ledgerjs/packages/hw-app-helium:
     specifiers:
-      '@helium/address': ^4.0.0
-      '@helium/proto': ^1.5.0
-      '@helium/transactions': ^4.1.0
+      '@helium/address': ^4.6.2
+      '@helium/proto': ^1.6.0
+      '@helium/transactions': ^4.7.5
       '@ledgerhq/errors': workspace:^
       '@ledgerhq/hw-transport': workspace:^
       '@ledgerhq/hw-transport-mocker': workspace:^
@@ -1579,9 +1579,9 @@ importers:
       ts-node: ^10.4.0
       typescript: ^4
     dependencies:
-      '@helium/address': 4.2.0
-      '@helium/proto': 1.5.0
-      '@helium/transactions': 4.3.1
+      '@helium/address': 4.6.2
+      '@helium/proto': 1.6.0
+      '@helium/transactions': 4.7.5
       '@ledgerhq/errors': link:../errors
       '@ledgerhq/hw-transport': link:../hw-transport
       '@ledgerhq/logs': link:../logs
@@ -8362,33 +8362,25 @@ packages:
       utf8: 3.0.0
     dev: false
 
-  /@helium/address/4.2.0:
-    resolution: {integrity: sha512-++poYfMZpSro1b5m8zsNPdCHssLNXgLYEgLG+K8syU+V2oADsb+OZDp5gthvWIBC7dBY0V+YmnxjDhBsyWKRiQ==}
+  /@helium/address/4.6.2:
+    resolution: {integrity: sha512-MXlT9SH4HPrBj+r71w51grZj4MUNi4o4SnDJds/yallROBK0qlO8m/bDCsKfmj0FVm861tIfQBrJc6y5vjsymg==}
     dependencies:
       bs58: 5.0.0
       js-sha256: 0.9.0
       multiformats: 9.6.5
     dev: false
 
-  /@helium/address/4.3.1:
-    resolution: {integrity: sha512-5f24ncoR3uOQgzFEtU2+YsHZTXW3+WYEBVdMVQEc5Hkou0bOTAOjVJZNhMqpIWLRzQXto2NOrDVIWXcFqqYnkg==}
+  /@helium/proto/1.6.0:
+    resolution: {integrity: sha512-aoVjhYDcic5g+n/iwKGXmGgMruPXTffpyr2ziGjuhAvU0phPSv6gnTbyHKY7FqBCUOYX4jHzEKJgX7M27UOGGg==}
     dependencies:
-      bs58: 5.0.0
-      js-sha256: 0.9.0
-      multiformats: 9.6.5
+      protobufjs: 6.11.3
     dev: false
 
-  /@helium/proto/1.5.0:
-    resolution: {integrity: sha512-dP3M6rApsNG0fl7IZgYu0R0kxEbhZ/z6BhBoYdmCQDyX9FX+kNlzuPWMji4P9jUFcAs7UAXTZLHR5XATJifVPw==}
+  /@helium/transactions/4.7.5:
+    resolution: {integrity: sha512-SCJI9lYVUTec9Ub60TpYcMEKmdiTV4qjib8yh63C4l1ACM5sHMSHoJwKSVxpjEEA8q+j6fnEBBEnJMtTSoK9/Q==}
     dependencies:
-      protobufjs: 6.11.2
-    dev: false
-
-  /@helium/transactions/4.3.1:
-    resolution: {integrity: sha512-acH0gDLrC/aTDtM4Jljd8xdQCzITWVNBsGvyTClfrS5dRos++A9wisvCx/VwUyl3w9x/NNU/+V5q8Is6fPJtJw==}
-    dependencies:
-      '@helium/address': 4.3.1
-      '@helium/proto': 1.5.0
+      '@helium/address': 4.6.2
+      '@helium/proto': 1.6.0
       '@types/libsodium-wrappers': 0.7.9
       long: 4.0.0
       path: 0.12.7
@@ -19076,10 +19068,10 @@ packages:
       lodash:
         optional: true
     dependencies:
-      7zip-bin: 5.1.1
       '@develar/schema-utils': 2.6.5
       '@electron/universal': 1.2.0
       '@malept/flatpak-bundler': 0.4.0
+      7zip-bin: 5.1.1
       async-exit-hook: 2.0.1
       bluebird-lst: 1.0.9
       builder-util: 23.0.2
@@ -21382,9 +21374,9 @@ packages:
   /builder-util/23.0.2:
     resolution: {integrity: sha512-HaNHL3axNW/Ms8O1mDx3I07G+ZnZ/TKSWWvorOAPau128cdt9S+lNx5ocbx8deSaHHX4WFXSZVHh3mxlaKJNgg==}
     dependencies:
-      7zip-bin: 5.1.1
       '@types/debug': 4.1.7
       '@types/fs-extra': 9.0.13
+      7zip-bin: 5.1.1
       app-builder-bin: 4.0.0
       bluebird-lst: 1.0.9
       builder-util-runtime: 9.0.0
@@ -21539,7 +21531,7 @@ packages:
       minipass-pipeline: 1.2.4
       mkdirp: 1.0.4
       p-map: 4.0.0
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 3.0.2
       ssri: 8.0.1
       tar: 6.1.11
@@ -22774,8 +22766,8 @@ packages:
     engines: {node: '>=10'}
     hasBin: true
     dependencies:
-      JSONStream: 1.3.5
       is-text-path: 1.0.1
+      JSONStream: 1.3.5
       lodash: 4.17.21
       meow: 8.1.2
       split2: 3.2.2
@@ -32063,13 +32055,13 @@ packages:
       '@types/lodash': 4.14.182
       '@types/node': 12.20.52
       '@types/ws': 7.4.7
-      JSONStream: 1.3.5
       commander: 2.20.3
       delay: 5.0.0
       es6-promisify: 5.0.0
       eyes: 0.1.8
       isomorphic-ws: 4.0.1_ws@7.5.7
       json-stringify-safe: 5.0.1
+      JSONStream: 1.3.5
       lodash: 4.17.21
       uuid: 8.3.2
       ws: 7.5.7
@@ -36941,24 +36933,6 @@ packages:
       - supports-color
       - utf-8-validate
 
-  /metro-config/0.67.0_5rj3ktdhebdtkdjqejo5rbxriu:
-    resolution: {integrity: sha512-ThAwUmzZwTbKyyrIn2bKIcJDPDBS0LKAbqJZQioflvBGfcgA21h3fdL3IxRmvCEl6OnkEWI0Tn1Z9w2GLAjf2g==}
-    peerDependencies:
-      metro-transform-worker: '*'
-    peerDependenciesMeta:
-      metro-transform-worker:
-        optional: true
-    dependencies:
-      cosmiconfig: 5.2.1
-      jest-validate: 26.6.2
-      metro: 0.67.0
-      metro-cache: 0.67.0_metro@0.67.0
-      metro-core: 0.67.0_metro@0.67.0
-      metro-runtime: 0.67.0
-      metro-transform-worker: 0.67.0_metro-minify-uglify@0.67.0
-    transitivePeerDependencies:
-      - metro
-
   /metro-config/0.67.0_h77kaxayu5kga6qsud7rauzt6a:
     resolution: {integrity: sha512-ThAwUmzZwTbKyyrIn2bKIcJDPDBS0LKAbqJZQioflvBGfcgA21h3fdL3IxRmvCEl6OnkEWI0Tn1Z9w2GLAjf2g==}
     peerDependencies:
@@ -37232,7 +37206,7 @@ packages:
       '@babel/parser': 7.17.10
       '@babel/types': 7.17.10
       babel-preset-fbjs: 3.4.0_@babel+core@7.17.10
-      metro: 0.67.0_h77kaxayu5kga6qsud7rauzt6a
+      metro: 0.67.0
       metro-babel-transformer: 0.67.0
       metro-cache: 0.67.0_metro@0.67.0
       metro-cache-key: 0.67.0
@@ -37305,68 +37279,6 @@ packages:
     transitivePeerDependencies:
       - bufferutil
       - encoding
-      - supports-color
-      - utf-8-validate
-
-  /metro/0.67.0_h77kaxayu5kga6qsud7rauzt6a:
-    resolution: {integrity: sha512-DwuBGAFcAivoac/swz8Lp7Y5Bcge1tzT7T6K0nf1ubqJP8YzBUtyR4pkjEYVUzVu/NZf7O54kHSPVu1ibYzOBQ==}
-    hasBin: true
-    dependencies:
-      '@babel/code-frame': 7.16.7
-      '@babel/core': 7.17.10
-      '@babel/generator': 7.17.10
-      '@babel/parser': 7.17.10
-      '@babel/template': 7.16.7
-      '@babel/traverse': 7.17.10
-      '@babel/types': 7.17.10
-      absolute-path: 0.0.0
-      accepts: 1.3.8
-      async: 2.6.4
-      chalk: 4.1.2
-      ci-info: 2.0.0
-      connect: 3.7.0
-      debug: 2.6.9
-      denodeify: 1.2.1
-      error-stack-parser: 2.0.7
-      fs-extra: 1.0.0
-      graceful-fs: 4.2.10
-      hermes-parser: 0.5.0
-      image-size: 0.6.3
-      invariant: 2.2.4
-      jest-haste-map: 27.5.1_metro@0.67.0
-      jest-worker: 26.6.2_metro@0.67.0
-      lodash.throttle: 4.1.1
-      metro-babel-transformer: 0.67.0
-      metro-cache: 0.67.0_metro@0.67.0
-      metro-cache-key: 0.67.0
-      metro-config: 0.67.0_5rj3ktdhebdtkdjqejo5rbxriu
-      metro-core: 0.67.0_metro@0.67.0
-      metro-hermes-compiler: 0.67.0
-      metro-inspector-proxy: 0.67.0
-      metro-minify-uglify: 0.67.0
-      metro-react-native-babel-preset: 0.67.0
-      metro-resolver: 0.67.0
-      metro-runtime: 0.67.0
-      metro-source-map: 0.67.0
-      metro-symbolicate: 0.67.0
-      metro-transform-plugins: 0.67.0
-      metro-transform-worker: 0.67.0_metro-minify-uglify@0.67.0
-      mime-types: 2.1.35
-      mkdirp: 0.5.6
-      node-fetch: 2.6.7
-      nullthrows: 1.1.1
-      rimraf: 2.7.1
-      serialize-error: 2.1.0
-      source-map: 0.5.7
-      strip-ansi: 6.0.1
-      temp: 0.8.3
-      throat: 5.0.0
-      ws: 7.5.7
-      yargs: 15.4.1
-    transitivePeerDependencies:
-      - bufferutil
-      - encoding
-      - metro-transform-worker
       - supports-color
       - utf-8-validate
 
@@ -37777,7 +37689,6 @@ packages:
     engines: {node: '>= 0.6'}
     hasBin: true
     dependencies:
-      JSONStream: 1.3.5
       browser-resolve: 1.11.3
       cached-path-relative: 1.1.0
       concat-stream: 1.5.2
@@ -37785,6 +37696,7 @@ packages:
       detective: 5.2.0
       duplexer2: 0.1.4
       inherits: 2.0.4
+      JSONStream: 1.3.5
       konan: 2.1.1
       readable-stream: 2.3.7
       resolve: 1.22.0
@@ -39402,7 +39314,7 @@ packages:
     engines: {node: '>=8'}
 
   /path/0.12.7:
-    resolution: {integrity: sha1-1NwqUGxM4hl+tIHr/NWzbAFAsQ8=}
+    resolution: {integrity: sha512-aXXC6s+1w7otVF9UletFkFcDsJeO7lSZBPUQhtb5O0xJe8LtYhj/GxldoL09bBj9+ZmE2hNoHqQSFMN5fikh4Q==}
     dependencies:
       process: 0.11.10
       util: 0.10.4
@@ -39684,7 +39596,7 @@ packages:
     resolution: {integrity: sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==}
     engines: {node: '>=6'}
     dependencies:
-      ts-pnp: 1.2.0_typescript@4.6.4
+      ts-pnp: 1.2.0
     transitivePeerDependencies:
       - typescript
     dev: true
@@ -41714,15 +41626,6 @@ packages:
     resolution: {integrity: sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==}
     engines: {node: '>=0.4.0'}
 
-  /promise-inflight/1.0.1:
-    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
-    peerDependencies:
-      bluebird: '*'
-    peerDependenciesMeta:
-      bluebird:
-        optional: true
-    dev: true
-
   /promise-inflight/1.0.1_bluebird@3.7.2:
     resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
     peerDependencies:
@@ -41867,6 +41770,26 @@ packages:
 
   /protobufjs/6.11.2:
     resolution: {integrity: sha512-4BQJoPooKJl2G9j3XftkIXjoC9C0Av2NOrWmbLWT1vH32GcSUHjM0Arra6UfTsVyfMAuFzaLucXn1sadxJydAw==}
+    hasBin: true
+    requiresBuild: true
+    dependencies:
+      '@protobufjs/aspromise': 1.1.2
+      '@protobufjs/base64': 1.1.2
+      '@protobufjs/codegen': 2.0.4
+      '@protobufjs/eventemitter': 1.1.0
+      '@protobufjs/fetch': 1.1.0
+      '@protobufjs/float': 1.0.2
+      '@protobufjs/inquire': 1.1.0
+      '@protobufjs/path': 1.1.2
+      '@protobufjs/pool': 1.1.0
+      '@protobufjs/utf8': 1.1.0
+      '@types/long': 4.0.2
+      '@types/node': 17.0.32
+      long: 4.0.0
+    dev: false
+
+  /protobufjs/6.11.3:
+    resolution: {integrity: sha512-xL96WDdCZYdU7Slin569tFX712BxsxslWwAfAhCYjQKGTq7dAU91Lomy6nLLhh/dyGhk/YH4TwTSRxTzhuHyZg==}
     hasBin: true
     requiresBuild: true
     dependencies:
@@ -46450,10 +46373,10 @@ packages:
     engines: {node: '>=8.0.0'}
     hasBin: true
     dependencies:
-      JSONStream: 1.3.5
       ansi-escape-sequences: 5.1.2
       byte-size: 6.2.0
       common-log-format: 1.0.0
+      JSONStream: 1.3.5
       lodash.throttle: 4.1.1
       stream-via: 1.0.4
       table-layout: 1.0.2
@@ -48232,18 +48155,6 @@ packages:
     peerDependenciesMeta:
       typescript:
         optional: true
-
-  /ts-pnp/1.2.0_typescript@4.6.4:
-    resolution: {integrity: sha512-csd+vJOb/gkzvcCHgTGSChYpy5f1/XKNsmvBGO4JXS+z1v2HobugDz4s1IeFXM3wZB44uczs+eazB5Q/ccdhQw==}
-    engines: {node: '>=6'}
-    peerDependencies:
-      typescript: '*'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-    dependencies:
-      typescript: 4.6.4
-    dev: true
 
   /tsconfig-paths/3.14.1:
     resolution: {integrity: sha512-fxDhWnFSLt3VuTwtvJt5fpwxBHg5AdKWMsgcPOOIilyjymcYVZoCQF8fvFRezCNfblEXmi+PcM1eYHeOAgXCOQ==}
