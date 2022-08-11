@@ -1521,9 +1521,9 @@ importers:
 
   libs/ledgerjs/packages/hw-app-helium:
     specifiers:
-      '@helium/address': ^4.3.1
+      '@helium/address': ^4.6.2
       '@helium/proto': ^1.6.0
-      '@helium/transactions': ^4.6.0
+      '@helium/transactions': ^4.7.5
       '@ledgerhq/errors': workspace:^
       '@ledgerhq/hw-transport': workspace:^
       '@ledgerhq/hw-transport-mocker': workspace:^
@@ -10515,6 +10515,16 @@ packages:
 
   /@helium/transactions/4.6.2:
     resolution: {integrity: sha512-zD32S+lk9Iz4m//6R43crgWHWFHYltgTgWCSHHLNwAH4bKfC3D2986rlBtXa37A3zUdPWt9vfqsVE5rdKszyiA==}
+    dependencies:
+      '@helium/address': 4.6.2
+      '@helium/proto': 1.6.0
+      '@types/libsodium-wrappers': 0.7.9
+      long: 4.0.0
+      path: 0.12.7
+    dev: false
+
+  /@helium/transactions/4.7.5:
+    resolution: {integrity: sha512-SCJI9lYVUTec9Ub60TpYcMEKmdiTV4qjib8yh63C4l1ACM5sHMSHoJwKSVxpjEEA8q+j6fnEBBEnJMtTSoK9/Q==}
     dependencies:
       '@helium/address': 4.6.2
       '@helium/proto': 1.6.0
