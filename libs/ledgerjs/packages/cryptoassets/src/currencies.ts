@@ -1300,6 +1300,7 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       {
         tx: "https://explorer.helium.com/txns/$hash",
         address: "https://explorer.helium.com/accounts/$address",
+        pending: "https://api.helium.io/v1/pending_transactions/$hash",
       },
     ],
   },
@@ -1330,6 +1331,7 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
       {
         tx: "https://explorer.helium.wtf/txns/$hash",
         address: "https://explorer.helium.wtf/accounts/$address",
+        pending: "https://testnet-api.helium.wtf/v1/pending_transactions/$hash",
       },
     ],
   },
