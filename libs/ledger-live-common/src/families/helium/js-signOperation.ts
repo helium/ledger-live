@@ -8,7 +8,7 @@ import type {
   Operation,
   OperationType,
   SignOperationEvent,
-} from "../../types";
+} from "@ledgerhq/types-live";
 
 import { open, close } from "../../hw";
 import { encodeOperationId } from "../../operation";

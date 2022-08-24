@@ -70,6 +70,8 @@ export interface Account {
   dcBalance: BigNumber;
   blockHeight: number;
   balance: BigNumber;
+  mobileBalance: BigNumber;
+  iotBalance: BigNumber;
   address: string;
   validators: Validator[];
 }
@@ -85,5 +87,7 @@ export interface AccountHTTP {
   dc_balance: number;
   block: number;
   balance: number;
+  mobile_balance?: number;
+  iot_balance?: number;
   address: string;
 }

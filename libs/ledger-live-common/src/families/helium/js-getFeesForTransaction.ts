@@ -1,5 +1,5 @@
 import { BigNumber } from "bignumber.js";
-import type { Account } from "../../types";
+import type { Account } from "@ledgerhq/types-live";
 import { getFees } from "./api";
 import type { Transaction } from "./types";
 

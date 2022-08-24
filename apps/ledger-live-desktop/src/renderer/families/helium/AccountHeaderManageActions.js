@@ -43,20 +43,26 @@ const AccountHeaderActions = ({ account, parentAccount }: Props) => {
     [dispatch, account, heliumResources],
   );
 
-  return [
-    {
-      key: "helium",
-      onClick: () => onClick("stake"),
-      icon: IconCoins,
-      label: t("account.stake"),
-    },
-    {
-      key: "helium",
-      onClick: () => onClick("vote"),
-      icon: Vote,
-      label: t("account.vote"),
-    },
-  ];
+  const addtionalActions = [];
+
+  if (account.currency.id === "helium" || account.currency.id === "helium_testnet") {
+    addtionalActions.push(
+      {
+        key: "helium",
+        onClick: () => onClick("stake"),
+        icon: IconCoins,
+        label: t("account.stake"),
+      },
+      {
+        key: "helium",
+        onClick: () => onClick("vote"),
+        icon: Vote,
+        label: t("account.vote"),
+      },
+    );
+  }
+
+  return addtionalActions;
 };
 
 export default AccountHeaderActions;

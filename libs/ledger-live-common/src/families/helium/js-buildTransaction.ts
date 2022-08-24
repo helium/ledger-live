@@ -12,7 +12,7 @@ import type {
   TransferStakeTransaction,
   BurnTransaction,
 } from "./types";
-import type { Account } from "../../types";
+import type { Account } from "@ledgerhq/types-live";
 import { getNonce } from "./logic";
 import Address from "@helium/address";
 import { getFees } from "./api";

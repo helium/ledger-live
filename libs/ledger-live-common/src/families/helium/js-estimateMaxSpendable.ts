@@ -1,6 +1,6 @@
 import { BigNumber } from "bignumber.js";
 
-import type { AccountLike, Account } from "../../types";
+import type { AccountLike, Account } from "@ledgerhq/types-live";
 import { getMainAccount } from "../../account";
 
 import type { Transaction } from "./types";

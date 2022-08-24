@@ -1,6 +1,6 @@
 import "../../__tests__/test-helpers/setup";
 import { testBridge } from "../../__tests__/test-helpers/bridge";
-import type { DatasetTest } from "../../types";
+import type { DatasetTest } from "@ledgerhq/types-live";
 import { BigNumber } from "bignumber.js";
 import {
   InvalidAddress,

@@ -9,6 +9,9 @@ import {
   TESTNET,
   MEMO_MAX_BYTES,
 } from "./constants";
+import { TokenAccount } from "@ledgerhq/types-live";
+import { findTokenById } from "../../currencies";
+import BigNumber from "bignumber.js";
 
 export const assertUnreachable = (): never => {
   throw new Error("unreachable assertion failed");
@@ -45,7 +48,7 @@ export function endpointByCurrencyId(currencyId: string): string {
  * @returns
  */
 export const getAccountShape: GetAccountShape = async (info) => {
-  const { balance, blockHeight, validators } = await getAccount(
+  const { balance, blockHeight, validators, mobileBalance } = await getAccount(
     info.address,
     info.currency
   );
@@ -67,10 +70,58 @@ export const getAccountShape: GetAccountShape = async (info) => {
     operations,
     operationsCount: operations.length,
     blockHeight,
-    subAccounts: info.initialAccount?.subAccounts,
+    subAccounts: [
+      addSubAccount(accountId, mobileBalance, operations, "mobile"),
+    ],
     heliumResources: {
       stakes: validators,
     },
+  };
+};
+
+export const addSubAccount = (
+  parentId: string,
+  tokenBalance: BigNumber,
+  operations: any[],
+  tokenName: string
+): TokenAccount => {
+  const token = findTokenById(`helium/asset/${tokenName}`);
+
+  const id = `${parentId}+${tokenName}`;
+
+  if (!token) {
+    throw Error(`unexpected token name <${tokenName}>`);
+  }
+
+  return {
+    type: "TokenAccount",
+    id,
+    starred: false,
+    // id of the parent account this token account belongs to
+    parentId,
+    balance: tokenBalance,
+    creationDate: new Date(),
+    operations: operations.filter((op) => op.currency === token),
+    operationsCount: operations.length,
+    pendingOperations: [],
+    token,
+    spendableBalance: tokenBalance,
+    balanceHistoryCache: {
+      HOUR: {
+        latestDate: null,
+        balances: [],
+      },
+      DAY: {
+        latestDate: null,
+        balances: [],
+      },
+      WEEK: {
+        latestDate: null,
+        balances: [],
+      },
+    },
+    // Swap operations linked to this account
+    swapHistory: [],
   };
 };
 

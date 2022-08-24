@@ -8,7 +8,7 @@ import {
   TransferValidatorStakeV1,
   TokenBurnV1,
 } from "@helium/transactions";
-import { CryptoCurrency } from "@ledgerhq/cryptoassets";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 import BigNumber from "bignumber.js";
 import { endpointByCurrencyId } from "../utils";
 import { fetch } from "./sdk";

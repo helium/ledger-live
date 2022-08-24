@@ -1,6 +1,18 @@
 import type { BigNumber } from "bignumber.js";
-import type { CryptoCurrency, TokenCurrency, Unit } from "./currencies";
-import type { OperationRaw, Operation } from "./operation";
+import type {
+  CryptoCurrency,
+  TokenCurrency,
+  Unit,
+} from "@ledgerhq/types-cryptoassets";
+import type {
+  OperationRaw,
+  Operation,
+  ProtoNFT,
+  ProtoNFTRaw,
+  BalanceHistory,
+  BalanceHistoryRaw,
+  PortfolioRange,
+} from "@ledgerhq/types-live";
 import type { DerivationMode } from "../derivation";
 import type {
   BitcoinResources,
@@ -33,18 +45,12 @@ import type {
 } from "../families/crypto_org/types";
 import { SolanaResources, SolanaResourcesRaw } from "../families/solana/types";
 import { HeliumResources, HeliumResourcesRaw } from "../families/helium/types";
-import type {
-  BalanceHistory,
-  BalanceHistoryRaw,
-  PortfolioRange,
-} from "./portfolio";
 import type { SwapOperation, SwapOperationRaw } from "../exchange/swap/types";
 import {
   CardanoResources,
   CardanoResourcesRaw,
 } from "../families/cardano/types";
-import type { ProtoNFT } from "./nft";
-import { ProtoNFTRaw } from ".";
+
 // This is the old cache and now DEPRECATED (pre v2 portfoli)
 export type BalanceHistoryMap = Partial<Record<PortfolioRange, BalanceHistory>>;
 export type BalanceHistoryRawMap = Record<PortfolioRange, BalanceHistoryRaw>;

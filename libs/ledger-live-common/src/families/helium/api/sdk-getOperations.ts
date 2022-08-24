@@ -8,7 +8,8 @@ import {
   BurnV1,
 } from "./sdk.types";
 import { fetchAll } from "./sdk";
-import { CryptoCurrency, Operation } from "../../../types";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
+import { Operation } from "@ledgerhq/types-live";
 import { endpointByCurrencyId } from "../utils";
 
 const supportedTypes = [

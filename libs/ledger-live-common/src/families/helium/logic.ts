@@ -1,6 +1,6 @@
 import Address from "@helium/address";
 import { Validator } from "@helium/http";
-import { CryptoCurrency } from "@ledgerhq/cryptoassets";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 import { getAccount } from "./api";
 import { StakeAction } from "./types";
 import { assertUnreachable } from "./utils";

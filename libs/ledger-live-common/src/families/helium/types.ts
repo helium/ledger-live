@@ -3,6 +3,8 @@ import {
   AccountRaw,
   TransactionCommon,
   TransactionCommonRaw,
+  TransactionStatusCommon,
+  TransactionStatusCommonRaw,
 } from "@ledgerhq/types-live";
 import type { BigNumber } from "bignumber.js";
 import { Validator } from "@helium/http";
@@ -119,3 +121,6 @@ export type HeliumAccount = Account & { heliumResources: HeliumResources };
 export type HeliumAccountRaw = AccountRaw & {
   heliumResources: HeliumResourcesRaw;
 };
+
+export type TransactionStatus = TransactionStatusCommon;
+export type TransactionStatusRaw = TransactionStatusCommonRaw;

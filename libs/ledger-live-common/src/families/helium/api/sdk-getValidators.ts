@@ -1,4 +1,4 @@
-import { CryptoCurrency } from "@ledgerhq/cryptoassets";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 import Client, { Network, Validator } from "@helium/http";
 
 const MAX = 100;

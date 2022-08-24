@@ -1,4 +1,4 @@
-import { CryptoCurrency } from "@ledgerhq/cryptoassets";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 import Client, { Network } from "@helium/http";
 
 const userAgent = `helium-ledger-live-js-client`;

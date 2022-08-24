@@ -1,4 +1,4 @@
-import { CryptoCurrency } from "@ledgerhq/cryptoassets";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 import { HeliumVote, HeliumVoteResults } from "../types";
 import { fetch } from "./sdk";
 import { getBlocks } from "./sdk-getBlocks";

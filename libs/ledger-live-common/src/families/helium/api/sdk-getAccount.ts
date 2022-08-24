@@ -1,7 +1,7 @@
 import BigNumber from "bignumber.js";
 import { fetch } from "./sdk";
 import { Account, AccountHTTP } from "./sdk.types";
-import { CryptoCurrency } from "@ledgerhq/cryptoassets";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
 import { endpointByCurrencyId } from "../utils";
 import { getValidators } from "./sdk-getValidators";
 
@@ -33,6 +33,8 @@ const getAccount = async (
     dcBalance: new BigNumber(account.dc_balance),
     blockHeight: account.block,
     balance: new BigNumber(account.balance),
+    iotBalance: new BigNumber(account.iot_balance || 0),
+    mobileBalance: new BigNumber(account.mobile_balance || 0),
     address: account.address,
     validators,
   };

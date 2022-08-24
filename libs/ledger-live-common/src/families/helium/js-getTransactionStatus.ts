@@ -7,7 +7,7 @@ import {
   FeeNotLoaded,
   AmountRequired,
 } from "@ledgerhq/errors";
-import type { Account, TransactionStatus } from "../../types";
+import type { Account } from "@ledgerhq/types-live";
 import type { Transaction } from "./types";
 import { isValidAddress } from "./logic";
 import { getMemoStrValid } from "./utils";
@@ -18,6 +18,7 @@ import {
   OldValidatorAddressRequired,
   NewValidatorAddressRequired,
 } from "./errors";
+import { TransactionStatus } from "./types";
 
 /**
  *

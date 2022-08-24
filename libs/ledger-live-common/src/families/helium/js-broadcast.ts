@@ -1,4 +1,4 @@
-import type { BroadcastFnSignature, Operation } from "../../types";
+import type { BroadcastFnSignature, Operation } from "@ledgerhq/types-live";
 import { patchOperationWithHash } from "../../operation";
 import { submit } from "./api";
 

@@ -1,5 +1,6 @@
 import { makeScanAccounts } from "../../../bridge/jsHelpers";
-import { CryptoCurrency, CurrencyBridge } from "../../../types";
+import { CryptoCurrency } from "@ledgerhq/types-cryptoassets";
+import { CurrencyBridge } from "@ledgerhq/types-live";
 import { setHeliumPreloadData } from "../preloadedData";
 import { getAccountShape } from "../utils";
 import { getValidators } from "../api/sdk-getValidators";

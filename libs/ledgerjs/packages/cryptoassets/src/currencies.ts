@@ -1282,7 +1282,7 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
     managerAppName: "Helium",
     ticker: "HNT",
     scheme: "helium",
-    color: "#474DFF",
+    color: "#000",
     family: "helium",
     units: [
       {
@@ -1332,6 +1332,36 @@ export const cryptocurrenciesById: Record<string, CryptoCurrency> = {
         tx: "https://explorer.helium.wtf/txns/$hash",
         address: "https://explorer.helium.wtf/accounts/$address",
         pending: "https://testnet-api.helium.wtf/v1/pending_transactions/$hash",
+      },
+    ],
+  },
+  mobile: {
+    type: "CryptoCurrency",
+    id: "mobile",
+    coinType: 904,
+    name: "Mobile",
+    managerAppName: "Helium",
+    ticker: "MOBILE",
+    scheme: "helium",
+    color: "#009FF9",
+    family: "helium",
+    units: [
+      {
+        name: "MOBILE",
+        code: "MOBILE",
+        magnitude: 8,
+      },
+      {
+        name: "bones",
+        code: "bones",
+        magnitude: 0,
+      },
+    ],
+    explorerViews: [
+      {
+        tx: "https://explorer.helium.com/txns/$hash",
+        address: "https://explorer.helium.com/accounts/$address",
+        pending: "https://api.helium.io/v1/pending_transactions/$hash",
       },
     ],
   },

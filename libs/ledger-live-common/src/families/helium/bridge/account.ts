@@ -1,5 +1,5 @@
 import { makeAccountBridgeReceive, makeSync } from "../../../bridge/jsHelpers";
-import { AccountBridge } from "../../../types";
+import { AccountBridge } from "@ledgerhq/types-live";
 import broadcast from "../js-broadcast";
 import estimateMaxSpendable from "../js-estimateMaxSpendable";
 import getTransactionStatus from "../js-getTransactionStatus";

@@ -32,6 +32,7 @@ import {
   toSolanaResourcesRaw,
   toCosmosResourcesRaw,
   toTronResourcesRaw,
+  toHeliumResourcesRaw,
 } from "./account";
 import consoleWarnExpectToEqual from "./consoleWarnExpectToEqual";
 import { AlgorandAccount, AlgorandAccountRaw } from "./families/algorand/types";
@@ -47,6 +48,7 @@ import { PolkadotAccount, PolkadotAccountRaw } from "./families/polkadot/types";
 import { SolanaAccount, SolanaAccountRaw } from "./families/solana/types";
 import { TezosAccount, TezosAccountRaw } from "./families/tezos/types";
 import { TronAccount, TronAccountRaw } from "./families/tron/types";
+import { HeliumAccount, HeliumAccountRaw } from "./families/helium/types";
 
 // aim to build operations with the minimal diff & call to coin implementation possible
 export async function minimalOperationsBuilder<CO>(
@@ -468,11 +470,25 @@ export function patchAccount(
       }
       break;
     }
-  }
 
-  if (updatedRaw.heliumResources) {
-    next.heliumResources = fromHeliumResourcesRaw(updatedRaw.heliumResources);
-    changed = true;
+    case "helium": {
+      const heliumAcc = account as HeliumAccount;
+      const heliumUpdatedRaw = updatedRaw as HeliumAccountRaw;
+
+      if (
+        heliumUpdatedRaw.heliumResources &&
+        !areSameResources(
+          toHeliumResourcesRaw(heliumAcc.heliumResources),
+          heliumUpdatedRaw.heliumResources
+        )
+      ) {
+        (next as HeliumAccount).heliumResources = fromHeliumResourcesRaw(
+          heliumUpdatedRaw.heliumResources
+        );
+        changed = true;
+      }
+      break;
+    }
   }
 
   const nfts = updatedRaw?.nfts?.map(fromNFTRaw);

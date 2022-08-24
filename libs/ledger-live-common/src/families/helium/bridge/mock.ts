@@ -6,7 +6,11 @@ import {
   FeeTooHigh,
 } from "@ledgerhq/errors";
 import type { Transaction } from "../types";
-import type { AccountBridge, CurrencyBridge } from "../../../types";
+import type {
+  Account,
+  AccountBridge,
+  CurrencyBridge,
+} from "@ledgerhq/types-live";
 import {
   scanAccounts,
   signOperation,
@@ -16,7 +20,7 @@ import {
 } from "../../../bridge/mockHelpers";
 import { getMainAccount } from "../../../account";
 import { makeAccountBridgeReceive } from "../../../bridge/mockHelpers";
-import type { Account, TransactionStatus } from "../../../types";
+import type { TransactionStatus } from "../types";
 
 const receive = makeAccountBridgeReceive();
 
