@@ -8,6 +8,7 @@ import elrond from "../families/elrond/transaction";
 import ethereum from "../families/ethereum/transaction";
 import filecoin from "../families/filecoin/transaction";
 import hedera from "../families/hedera/transaction";
+import helium from "../families/helium/transaction";
 import neo from "../families/neo/transaction";
 import osmosis from "../families/osmosis/transaction";
 import polkadot from "../families/polkadot/transaction";
@@ -28,6 +29,7 @@ export default {
   ethereum,
   filecoin,
   hedera,
+  helium,
   neo,
   osmosis,
   polkadot,

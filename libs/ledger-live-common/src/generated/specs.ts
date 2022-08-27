@@ -8,6 +8,7 @@ import elrond from "../families/elrond/specs";
 import ethereum from "../families/ethereum/specs";
 import filecoin from "../families/filecoin/specs";
 import hedera from "../families/hedera/specs";
+import helium from "../families/helium/specs";
 import osmosis from "../families/osmosis/specs";
 import polkadot from "../families/polkadot/specs";
 import ripple from "../families/ripple/specs";
@@ -27,6 +28,7 @@ export default {
   ethereum,
   filecoin,
   hedera,
+  helium,
   osmosis,
   polkadot,
   ripple,
