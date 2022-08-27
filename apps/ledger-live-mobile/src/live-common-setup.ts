@@ -64,6 +64,8 @@ setSupportedCurrencies([
   "cardano",
   "osmosis",
   "filecoin",
+  "helium",
+  "helium_testnet",
 ]);
 
 if (Config.VERBOSE) {
