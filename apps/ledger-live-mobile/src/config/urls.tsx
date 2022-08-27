@@ -139,6 +139,10 @@ export const urls = {
     supportPage: "https://support.ledger.com",
     stakingPage: "https://support.ledger.com",
   },
+  helium: {
+    supportPage: "https://support.ledger.com",
+    votingPage: "https://www.ledger.com/voting-helium",
+  },
   resources: {
     gettingStarted:
       "https://www.ledger.com/start?utm_source=ledger_live&utm_medium=self_referral&utm_content=help_mobile",
