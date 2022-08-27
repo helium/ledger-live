@@ -45,4 +45,6 @@ setSupportedCurrencies([
   "hedera",
   "cardano",
   "filecoin",
+  "helium",
+  "helium_testnet",
 ]);
